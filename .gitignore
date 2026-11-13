@@ -4,3 +4,4 @@ fotos-originais/
 *.log
 .DS_Store
 .vite/
+.netlify/
