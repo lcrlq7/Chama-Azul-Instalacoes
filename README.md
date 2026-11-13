@@ -78,14 +78,9 @@ O site fica na **Netlify** (plano gratuito): https://chama-azul-instalacoes.netl
 As configurações estão em `netlify.toml` (build `npm run build`, pasta `dist`, Node 22, cache e
 cabeçalhos de segurança).
 
-### Publicação automática a cada `git push` (fazer uma vez)
+### Publicação automática
 
-1. Abra o projeto em [app.netlify.com](https://app.netlify.com/projects/chama-azul-instalacoes).
-2. **Project configuration > Build & deploy > Continuous deployment > Link repository**.
-3. Escolha **GitHub** e o repositório `Chama-Azul-Instalacoes`, branch `main`. Não precisa
-   preencher mais nada: a Netlify lê o `netlify.toml`.
-
-A partir daí, toda alteração enviada para a `main` (inclusive editando pelo próprio site do
+O projeto da Netlify está ligado a este repositório (branch `main`). Toda alteração enviada para a `main` (inclusive editando pelo próprio site do
 GitHub: abra `src/site.config.ts`, clique no lápis, altere e **Commit changes**) atualiza o site
 em 1 a 2 minutos.
 
