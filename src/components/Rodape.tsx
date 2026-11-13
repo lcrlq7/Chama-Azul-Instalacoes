@@ -11,8 +11,8 @@ export function Rodape() {
         <div>
           <Logo tamanho={128} />
           <p className="mt-4 max-w-xs text-sm">
-            Instalações de gás, hidráulica, aquecimento e fogões em {site.cidadeBase} e região do{' '}
-            {site.regiao}.
+            Instalações de gás, hidráulica, aquecimento e fogões. Base em {site.cidadeBase}, com
+            atendimento em {site.areaAtendimento}.
           </p>
           <p className="mt-2 text-sm">Marca irmã: {site.marcaIrma}.</p>
         </div>

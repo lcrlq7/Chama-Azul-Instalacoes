@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react';
 import { site } from './src/site.config';
 import logoVetor from './src/data/logo-vetor.json';
 
-const titulo = `${site.nome} | Gás e hidráulica em ${site.cidadeBase} e região`;
-const descricao = `Instalação e manutenção de redes de gás, hidráulica em multicamadas, boiler, aquecimento e fogões em ${site.cidadeBase} e região. Orçamento detalhado por escrito e garantia no serviço.`;
+const titulo = site.seo.titulo;
+const descricao = site.seo.descricao;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -22,7 +22,10 @@ const jsonLd = {
     addressRegion: site.estado,
     addressCountry: 'BR',
   },
-  areaServed: site.cidadesAtendidas.map((c) => ({ '@type': 'City', name: c })),
+  areaServed: [
+    { '@type': 'State', name: site.estadoNome },
+    ...site.cidadesAtendidas.map((c) => ({ '@type': 'City', name: c })),
+  ],
   sameAs: [site.contato.instagramUrl],
   employee: { '@type': 'Person', name: site.responsavelTecnico, jobTitle: 'Responsável técnico' },
   knowsAbout: site.servicos.map((s) => s.titulo),

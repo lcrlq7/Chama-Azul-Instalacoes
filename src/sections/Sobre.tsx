@@ -14,9 +14,9 @@ export function Sobre() {
             Por que a Chama Azul
           </h2>
           <p className="mt-3 max-w-2xl text-lg text-suave">
-            A {site.nome} atende {site.cidadeBase} e a região do {site.regiao}, com o responsável
-            técnico {site.responsavelTecnico} à frente de cada serviço. O mesmo CNPJ atende também a{' '}
-            {site.marcaIrma}.
+            A {site.nome} tem base em {site.cidadeBase} e atende {site.areaAtendimento}, com o
+            responsável técnico {site.responsavelTecnico} à frente de cada serviço. O mesmo CNPJ
+            atende também a {site.marcaIrma}.
           </p>
           <ul className="mt-10 grid gap-5 sm:grid-cols-2">
             {site.diferenciais.map((d) => (

@@ -19,10 +19,7 @@ export function Inicio() {
   const { secao } = useParams();
   const local = useLocation();
 
-  useSeo(
-    `${site.nome} | Gás e hidráulica em ${site.cidadeBase} e região`,
-    `Instalação e manutenção de redes de gás, hidráulica em multicamadas, boiler, aquecimento e fogões em ${site.cidadeBase} e região. Orçamento detalhado por escrito e garantia no serviço.`,
-  );
+  useSeo(site.seo.titulo, site.seo.descricao);
 
   // Rolagem até a seção pedida (ex.: #/servicos), descontando o topo fixo via scroll-margin.
   useEffect(() => {

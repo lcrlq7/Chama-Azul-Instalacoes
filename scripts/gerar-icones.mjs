@@ -60,7 +60,7 @@ const faixa = Buffer.from(
     <rect width="600" height="630" fill="#0B1B34" opacity="0.0"/>
     <rect x="0" y="560" width="600" height="70" fill="#0B1B34"/>
     <rect x="0" y="560" width="600" height="5" fill="#F4780B"/>
-    <text x="24" y="604" font-family="Georgia, serif" font-size="22" fill="#ffffff">Gás e hidráulica em Volta Redonda e região</text>
+    <text x="24" y="604" font-family="Georgia, serif" font-size="20" fill="#ffffff">Gás e hidráulica em todo o estado do Rio de Janeiro</text>
   </svg>`,
 );
 await sharp({ create: { width: 1200, height: 630, channels: 3, background: '#0B1B34' } })

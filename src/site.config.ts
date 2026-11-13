@@ -64,6 +64,10 @@ export const site = {
 
   cidadeBase: 'Volta Redonda',
   estado: 'RJ',
+  estadoNome: 'Rio de Janeiro',
+  // Área de atendimento, usada nos textos do site e no SEO.
+  areaAtendimento: 'todo o estado do Rio de Janeiro',
+  // Cidades em destaque na seção "Área de atendimento" (além de todo o estado).
   cidadesAtendidas: [
     'Volta Redonda',
     'Barra Mansa',
@@ -73,7 +77,6 @@ export const site = {
     'Resende',
     'Bananal',
   ],
-  regiao: 'Sul Fluminense',
 
   // Link do Google Maps. Quando tiver o perfil no Google Meu Negócio, cole o link dele aqui.
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Volta+Redonda+RJ',
@@ -85,9 +88,10 @@ export const site = {
   },
 
   hero: {
-    titulo: 'Instalações de gás e hidráulica com segurança e garantia em Volta Redonda e região',
+    titulo:
+      'Instalações de gás e hidráulica com segurança e garantia em todo o estado do Rio de Janeiro',
     subtitulo:
-      'Redes de gás, hidráulica em multicamadas, boiler, aquecimento e fogões. Orçamento detalhado por escrito e atendimento direto com o responsável técnico.',
+      'Base em Volta Redonda, com atendimento em todo o estado do RJ. Redes de gás, hidráulica em multicamadas, boiler, aquecimento e fogões, com orçamento detalhado por escrito e atendimento direto com o responsável técnico.',
     selos: [
       'Orçamento por escrito',
       'Garantia no serviço',
@@ -212,9 +216,16 @@ export const site = {
     {
       pergunta: 'Quais cidades vocês atendem?',
       resposta:
-        'Volta Redonda, Barra Mansa, Pinheiral, Barra do Piraí, Piraí, Resende, Bananal e região do Sul Fluminense.',
+        'Atendemos todo o estado do Rio de Janeiro, com base em Volta Redonda. Atendemos também Barra Mansa, Pinheiral, Barra do Piraí, Piraí, Resende e Bananal.',
     },
   ] satisfies Pergunta[],
+
+  // Título e descrição da página inicial (Google, WhatsApp, redes sociais).
+  seo: {
+    titulo: 'Chama Azul Instalações | Gás e hidráulica em Volta Redonda e todo o RJ',
+    descricao:
+      'Instalação e manutenção de redes de gás, hidráulica em multicamadas, boiler, aquecimento e fogões em Volta Redonda e todo o estado do Rio de Janeiro. Orçamento detalhado por escrito e garantia no serviço.',
+  },
 
   // Deixe vazio para não usar analytics. Se ativar, atualize a Política de Privacidade.
   analyticsId: '',

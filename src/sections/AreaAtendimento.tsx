@@ -7,10 +7,17 @@ export function AreaAtendimento() {
     <Secao
       id="area-atendimento"
       titulo="Área de atendimento"
-      intro={`Base em ${site.cidadeBase}, ${site.estado}. Atendemos também as cidades abaixo e a região do ${site.regiao}.`}
+      intro={`Base em ${site.cidadeBase}, ${site.estado}, com atendimento em ${site.areaAtendimento}.`}
       fundo="creme"
     >
-      <ul className="flex flex-wrap gap-3">
+      <p className="inline-flex items-center gap-2 rounded-full bg-marinho px-5 py-2.5 font-semibold text-white">
+        <Icone nome="mapa" className="h-5 w-5 text-laranja" />
+        Todo o estado do {site.estadoNome}
+      </p>
+      <h3 className="mt-8 font-sans text-base font-semibold text-suave">
+        Base em {site.cidadeBase} e cidades próximas
+      </h3>
+      <ul className="mt-3 flex flex-wrap gap-3">
         {site.cidadesAtendidas.map((c) => (
           <li
             key={c}
@@ -20,9 +27,6 @@ export function AreaAtendimento() {
             {c}
           </li>
         ))}
-        <li className="inline-flex items-center rounded-full border border-dashed border-borda px-4 py-2 text-suave">
-          e região do {site.regiao}
-        </li>
       </ul>
       <a
         href={site.googleMapsUrl}
