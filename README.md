@@ -73,7 +73,21 @@ símbolo pequeno do topo e o favicon são vetores em `src/components/Logo.tsx` e
 
 ## Publicar
 
-O site é publicado automaticamente no **GitHub Pages** a cada envio (`git push`) para a branch
+### Netlify (recomendado)
+
+Gratuita, aceita repositório privado e atualiza o site sozinha a cada `git push` na `main`.
+As configurações já estão em `netlify.toml` (build `npm run build`, pasta `dist`, Node 22).
+
+1. Crie uma conta em [netlify.com](https://www.netlify.com) (pode entrar com o GitHub).
+2. **Add new project > Import an existing project > GitHub** e escolha este repositório.
+3. Clique em **Deploy**. Não precisa preencher nada: a Netlify lê o `netlify.toml`.
+4. Em **Domain management** dá para trocar o nome do endereço `*.netlify.app` e ligar um domínio
+   próprio (a Netlify mostra os registros DNS que devem ser criados).
+5. Depois, troque `urlSite` em `src/site.config.ts` pelo endereço final e publique.
+
+### GitHub Pages (alternativa)
+
+O site também é publicado automaticamente no **GitHub Pages** a cada envio (`git push`) para a branch
 `main`, pelo GitHub Actions (`.github/workflows/deploy.yml`). Escolhemos o GitHub Pages porque é
 gratuito, fica no mesmo lugar do código e não precisa de outra conta.
 
