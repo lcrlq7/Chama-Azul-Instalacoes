@@ -50,7 +50,7 @@ export const site = {
 
   // Endereço público do site (usado em SEO, sitemap e imagem de compartilhamento).
   // Ao ligar um domínio próprio, troque para algo como 'https://chamaazul.com.br/'.
-  urlSite: 'https://lcrlq7.github.io/Chama-Azul-Instala-oes/',
+  urlSite: 'https://lcrlq7.github.io/Chama-Azul-Instalacoes/',
 
   contato: {
     telefoneExibicao: '(24) 99321-9602',

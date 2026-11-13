@@ -83,7 +83,7 @@ Na primeira vez, é preciso ligar o Pages no repositório:
 2. Em **Build and deployment > Source**, escolha **GitHub Actions**.
 3. Abra a aba **Actions** e rode de novo o fluxo "Publicar no GitHub Pages" (ou faça um novo push).
 
-O endereço fica `https://lcrlq7.github.io/Chama-Azul-Instala-oes/`.
+O endereço fica `https://lcrlq7.github.io/Chama-Azul-Instalacoes/`.
 
 > Repositório privado: o GitHub Pages em repositório privado exige plano pago (GitHub Pro ou
 > Team). No plano gratuito, deixe o repositório público ou publique na Vercel/Netlify
