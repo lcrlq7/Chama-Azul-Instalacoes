@@ -1,0 +1,6 @@
+dist
+node_modules
+fotos-originais
+public/fotos
+package-lock.json
+src/data/fotos-dimensoes.json
