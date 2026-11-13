@@ -1,0 +1,147 @@
+{
+  "rede-pex-recorte-laje": {
+    "largura": 1280,
+    "altura": 960,
+    "larguras": [
+      480,
+      800,
+      1200,
+      1280
+    ]
+  },
+  "termobox-coletor-frente": {
+    "largura": 960,
+    "altura": 947,
+    "larguras": [
+      480,
+      800,
+      960
+    ]
+  },
+  "termobox-coletor-lateral": {
+    "largura": 960,
+    "altura": 1101,
+    "larguras": [
+      480,
+      800,
+      960
+    ]
+  },
+  "prumada-termobox-obra": {
+    "largura": 720,
+    "altura": 794,
+    "larguras": [
+      480,
+      720
+    ]
+  },
+  "prumada-parede-tijolo": {
+    "largura": 461,
+    "altura": 1126,
+    "larguras": [
+      461
+    ]
+  },
+  "shaft-caixas-termobox": {
+    "largura": 960,
+    "altura": 986,
+    "larguras": [
+      480,
+      800,
+      960
+    ]
+  },
+  "prumadas-alvenaria": {
+    "largura": 576,
+    "altura": 1086,
+    "larguras": [
+      480,
+      576
+    ]
+  },
+  "pontos-agua-parede": {
+    "largura": 960,
+    "altura": 1101,
+    "larguras": [
+      480,
+      800,
+      960
+    ]
+  },
+  "tubulacao-piso": {
+    "largura": 960,
+    "altura": 1280,
+    "larguras": [
+      480,
+      800,
+      960
+    ]
+  },
+  "queimadores-glp-churrasqueira": {
+    "largura": 720,
+    "altura": 454,
+    "larguras": [
+      480,
+      720
+    ]
+  },
+  "queimadores-glp-detalhe": {
+    "largura": 720,
+    "altura": 896,
+    "larguras": [
+      480,
+      720
+    ]
+  },
+  "coifa-cooktop": {
+    "largura": 576,
+    "altura": 1178,
+    "larguras": [
+      480,
+      576
+    ]
+  },
+  "coifa-cooktop-frente": {
+    "largura": 576,
+    "altura": 1178,
+    "larguras": [
+      480,
+      576
+    ]
+  },
+  "tecnico-atendimento": {
+    "largura": 900,
+    "altura": 1472,
+    "larguras": [
+      480,
+      800,
+      900
+    ]
+  },
+  "cooktop-instalado": {
+    "largura": 1200,
+    "altura": 1216,
+    "larguras": [
+      480,
+      800,
+      1200
+    ]
+  },
+  "aquecedor-gas": {
+    "largura": 720,
+    "altura": 1600,
+    "larguras": [
+      480,
+      720
+    ]
+  },
+  "ligacao-flexivel-gas": {
+    "largura": 1200,
+    "altura": 1088,
+    "larguras": [
+      480,
+      800,
+      1200
+    ]
+  }
+}

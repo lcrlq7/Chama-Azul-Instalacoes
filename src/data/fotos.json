@@ -1,0 +1,139 @@
+[
+  {
+    "id": "rede-pex-recorte-laje",
+    "origem": "foto-11.jpg",
+    "recorte": [0, 0, 1, 1],
+    "categoria": "Hidráulica",
+    "legenda": "Sistema de caixa Termobox, tubulação de água quente e fria",
+    "alt": "Duas caixas Termobox com registros instaladas na parede, ligadas a várias linhas de tubulação multicamadas branca que descem do teto"
+  },
+  {
+    "id": "termobox-coletor-frente",
+    "origem": "foto-05.jpg",
+    "recorte": [0, 0, 1, 0.74],
+    "categoria": "Hidráulica",
+    "legenda": "Sistema de caixa Termobox, tubulação de água quente e fria",
+    "alt": "Caixa Termobox aberta com coletor de registros metálicos e várias saídas de tubulação multicamadas branca em curva, embutida em parede de tijolos"
+  },
+  {
+    "id": "termobox-coletor-lateral",
+    "origem": "foto-06.jpg",
+    "recorte": [0, 0, 1, 0.86],
+    "categoria": "Hidráulica",
+    "legenda": "Sistema de caixa Termobox, tubulação de água quente e fria",
+    "alt": "Vista frontal de caixa Termobox com coletor de água quente e fria e feixe de tubos multicamadas saindo pela parte de baixo"
+  },
+  {
+    "id": "prumada-termobox-obra",
+    "origem": "foto-03.jpg",
+    "recorte": [0, 0.04, 1, 0.66],
+    "categoria": "Hidráulica",
+    "legenda": "Sistema de caixa Termobox, tubulação de água quente e fria",
+    "alt": "Caixa Termobox com registros instalada na base de uma parede de tijolos, com prumada de tubos multicamadas subindo pelo canto da obra"
+  },
+  {
+    "id": "prumada-parede-tijolo",
+    "origem": "foto-02.jpg",
+    "recorte": [0.36, 0, 1, 0.88],
+    "categoria": "Hidráulica",
+    "legenda": "Sistema de caixa Termobox, tubulação de água quente e fria",
+    "alt": "Feixe de tubulação multicamadas branca descendo junto à parede de tijolos até uma caixa Termobox com registros"
+  },
+  {
+    "id": "shaft-caixas-termobox",
+    "origem": "foto-09.jpg",
+    "recorte": [0, 0, 1, 0.77],
+    "categoria": "Hidráulica",
+    "legenda": "Sistema de caixa Termobox, tubulação de água quente e fria",
+    "alt": "Duas caixas Termobox brancas fechadas instaladas em shaft de alvenaria, com tubulações de água quente e fria nas laterais"
+  },
+  {
+    "id": "prumadas-alvenaria",
+    "origem": "foto-17.jpg",
+    "recorte": [0, 0, 1, 1],
+    "categoria": "Hidráulica",
+    "legenda": "Prumadas de tubulação multicamadas em alvenaria",
+    "alt": "Dois conjuntos de tubulação multicamadas descendo do teto por uma parede de tijolos até caixas com registros"
+  },
+  {
+    "id": "pontos-agua-parede",
+    "origem": "foto-07.jpg",
+    "recorte": [0, 0.04, 1, 0.9],
+    "categoria": "Hidráulica",
+    "legenda": "Pontos de água quente e fria em tubulação multicamadas",
+    "alt": "Tubos multicamadas subindo do contrapiso até os pontos de água na parede, abaixo de uma janela, em obra em andamento"
+  },
+  {
+    "id": "tubulacao-piso",
+    "origem": "foto-08.jpg",
+    "recorte": [0, 0, 1, 1],
+    "categoria": "Hidráulica",
+    "legenda": "Tubulação multicamadas passando pelo piso da obra",
+    "alt": "Linhas de tubulação multicamadas branca percorrendo o contrapiso de um corredor em obra"
+  },
+  {
+    "id": "queimadores-glp-churrasqueira",
+    "origem": "foto-20.jpg",
+    "recorte": [0, 0.46, 1, 0.815],
+    "categoria": "Gás",
+    "legenda": "Instalação de queimadores de baixa pressão GLP com acendimento automático",
+    "alt": "Dois queimadores ovais de baixa pressão GLP instalados sobre apoios de tijolo na base de uma churrasqueira de alvenaria"
+  },
+  {
+    "id": "queimadores-glp-detalhe",
+    "origem": "foto-01.jpg",
+    "recorte": [0, 0.3, 1, 1],
+    "categoria": "Gás",
+    "legenda": "Instalação de queimadores de baixa pressão GLP com acendimento automático",
+    "alt": "Detalhe de dois queimadores GLP de baixa pressão com conexões e linha de gás, montados dentro de forno de tijolos"
+  },
+  {
+    "id": "coifa-cooktop",
+    "origem": "foto-14.jpg",
+    "recorte": [0, 0, 1, 0.92],
+    "categoria": "Fogões e cooktops",
+    "legenda": "Cooktop a gás e coifa instalados",
+    "alt": "Cooktop a gás de cinco bocas em bancada de granito, com coifa de vidro e inox instalada acima, em parede de porcelanato cinza"
+  },
+  {
+    "id": "coifa-cooktop-frente",
+    "origem": "foto-13.jpg",
+    "recorte": [0, 0, 1, 0.92],
+    "categoria": "Fogões e cooktops",
+    "legenda": "Cooktop a gás e coifa instalados",
+    "alt": "Coifa de vidro curvo com iluminação acesa sobre cooktop a gás em bancada de granito"
+  },
+  {
+    "id": "tecnico-atendimento",
+    "origem": "foto-22.jpg",
+    "recorte": [0, 0.08, 1, 1],
+    "categoria": "Sobre",
+    "legenda": "Atendimento com o responsável técnico",
+    "alt": "Técnico de costas, com camiseta da Chama Azul Instalações, trabalhando na ligação junto a um gabinete de cozinha",
+    "galeria": false
+  },
+  {
+    "id": "cooktop-instalado",
+    "origem": "foto-21.jpg",
+    "recorte": [0, 0.1, 1, 0.86],
+    "categoria": "Fogões e cooktops",
+    "legenda": "Cooktop a gás instalado",
+    "alt": "Cooktop a gás de quatro bocas com mesa de vidro preto instalado em bancada de granito"
+  },
+  {
+    "id": "aquecedor-gas",
+    "origem": "foto-24.jpg",
+    "recorte": [0.1, 0, 0.9, 1],
+    "categoria": "Aquecimento",
+    "legenda": "Aquecedor de água a gás instalado",
+    "alt": "Aquecedor de água a gás branco instalado na parede, com duto de exaustão metálico e ligações de água e gás"
+  },
+  {
+    "id": "ligacao-flexivel-gas",
+    "origem": "foto-23.jpg",
+    "recorte": [0, 0.12, 1, 0.8],
+    "categoria": "Gás",
+    "legenda": "Ligação de gás com flexível",
+    "alt": "Mangueira flexível amarela de gás ligando o registro na parede ao fogão, ao lado de um gabinete de cozinha"
+  }
+]
