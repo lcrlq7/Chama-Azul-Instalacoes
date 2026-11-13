@@ -73,59 +73,36 @@ símbolo pequeno do topo e o favicon são vetores em `src/components/Logo.tsx` e
 
 ## Publicar
 
-### Netlify (recomendado)
+O site fica na **Netlify** (plano gratuito): https://chama-azul-instalacoes.netlify.app
 
-Gratuita, aceita repositório privado e atualiza o site sozinha a cada `git push` na `main`.
-As configurações já estão em `netlify.toml` (build `npm run build`, pasta `dist`, Node 22).
+As configurações estão em `netlify.toml` (build `npm run build`, pasta `dist`, Node 22, cache e
+cabeçalhos de segurança).
 
-1. Crie uma conta em [netlify.com](https://www.netlify.com) (pode entrar com o GitHub).
-2. **Add new project > Import an existing project > GitHub** e escolha este repositório.
-3. Clique em **Deploy**. Não precisa preencher nada: a Netlify lê o `netlify.toml`.
-4. Em **Domain management** dá para trocar o nome do endereço `*.netlify.app` e ligar um domínio
-   próprio (a Netlify mostra os registros DNS que devem ser criados).
-5. Depois, troque `urlSite` em `src/site.config.ts` pelo endereço final e publique.
+### Publicação automática a cada `git push` (fazer uma vez)
 
-### GitHub Pages (alternativa)
+1. Abra o projeto em [app.netlify.com](https://app.netlify.com/projects/chama-azul-instalacoes).
+2. **Project configuration > Build & deploy > Continuous deployment > Link repository**.
+3. Escolha **GitHub** e o repositório `Chama-Azul-Instalacoes`, branch `main`. Não precisa
+   preencher mais nada: a Netlify lê o `netlify.toml`.
 
-O site também é publicado automaticamente no **GitHub Pages** a cada envio (`git push`) para a branch
-`main`, pelo GitHub Actions (`.github/workflows/deploy.yml`). Escolhemos o GitHub Pages porque é
-gratuito, fica no mesmo lugar do código e não precisa de outra conta.
-
-Na primeira vez, é preciso ligar o Pages no repositório:
-
-1. No GitHub, abra o repositório, **Settings > Pages**.
-2. Em **Build and deployment > Source**, escolha **GitHub Actions**.
-3. Abra a aba **Actions** e rode de novo o fluxo "Publicar no GitHub Pages" (ou faça um novo push).
-
-O endereço fica `https://lcrlq7.github.io/Chama-Azul-Instalacoes/`.
-
-> Repositório privado: o GitHub Pages em repositório privado exige plano pago (GitHub Pro ou
-> Team). No plano gratuito, deixe o repositório público ou publique na Vercel/Netlify
-> (importe o repositório, comando de build `npm run build`, pasta `dist`).
-
-Para editar pelo próprio site do GitHub: abra `src/site.config.ts`, clique no lápis, altere e
-clique em **Commit changes**. Em 1 a 2 minutos o site atualiza.
+A partir daí, toda alteração enviada para a `main` (inclusive editando pelo próprio site do
+GitHub: abra `src/site.config.ts`, clique no lápis, altere e **Commit changes**) atualiza o site
+em 1 a 2 minutos.
 
 ## Domínio próprio (ex.: chamaazul.com.br)
 
 1. Compre o domínio (no Brasil, em [registro.br](https://registro.br)).
-2. No GitHub: **Settings > Pages > Custom domain**, digite `chamaazul.com.br` e salve.
+2. Na Netlify: **Domain management > Add a domain**, digite `chamaazul.com.br` e confirme.
 3. No painel de DNS do domínio (registro.br > DNS > "Editar zona"), crie:
 
-   | Tipo  | Nome        | Valor               |
-   | ----- | ----------- | ------------------- |
-   | A     | (vazio / @) | 185.199.108.153     |
-   | A     | (vazio / @) | 185.199.109.153     |
-   | A     | (vazio / @) | 185.199.110.153     |
-   | A     | (vazio / @) | 185.199.111.153     |
-   | AAAA  | (vazio / @) | 2606:50c0:8000::153 |
-   | AAAA  | (vazio / @) | 2606:50c0:8001::153 |
-   | AAAA  | (vazio / @) | 2606:50c0:8002::153 |
-   | AAAA  | (vazio / @) | 2606:50c0:8003::153 |
-   | CNAME | www         | lcrlq7.github.io    |
+   | Tipo  | Nome        | Valor                              |
+   | ----- | ----------- | ---------------------------------- |
+   | A     | (vazio / @) | 75.2.60.5                          |
+   | CNAME | www         | chama-azul-instalacoes.netlify.app |
 
-4. Espere a propagação (de minutos a algumas horas). Depois marque **Enforce HTTPS** em
-   Settings > Pages.
+   Confira os valores na tela da Netlify: ela mostra exatamente os registros esperados.
+
+4. Espere a propagação (de minutos a algumas horas). O HTTPS é ativado sozinho pela Netlify.
 5. Em `src/site.config.ts`, troque `urlSite` para `'https://chamaazul.com.br/'` e publique.
    Não precisa mudar mais nada: o site usa caminhos relativos e funciona em qualquer endereço.
 
