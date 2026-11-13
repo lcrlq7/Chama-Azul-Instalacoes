@@ -9,7 +9,7 @@ export function Rodape() {
     <footer className="bg-marinho pb-24 pt-12 text-white/85 lg:pb-10">
       <div className="container-site grid gap-10 md:grid-cols-3">
         <div>
-          <Logo claro />
+          <Logo tamanho={128} />
           <p className="mt-4 max-w-xs text-sm">
             Instalações de gás, hidráulica, aquecimento e fogões em {site.cidadeBase} e região do{' '}
             {site.regiao}.

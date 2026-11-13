@@ -8,7 +8,9 @@ export function Privacidade() {
     `Política de Privacidade | ${site.nome}`,
     `Como o site da ${site.nome} trata dados pessoais, conforme a LGPD.`,
   );
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const comAnalytics = Boolean(site.analyticsId);
   return (
     <section className="bg-white pb-20 pt-28">

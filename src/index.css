@@ -14,8 +14,14 @@
   --texto: #1a202c;
   --texto-suave: #4a5568;
   --whatsapp: #25d366;
-  --altura-topo: 4rem;
+  --altura-topo: 72px;
   color-scheme: light;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --altura-topo: 80px;
+  }
 }
 
 html {

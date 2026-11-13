@@ -17,7 +17,9 @@ export function Topo() {
   const botaoRef = useRef<HTMLButtonElement>(null);
   const local = useLocation();
 
-  useEffect(() => setAberto(false), [local.key]);
+  useEffect(() => {
+    setAberto(false);
+  }, [local.key]);
 
   useEffect(() => {
     if (!aberto) return;
@@ -43,9 +45,9 @@ export function Topo() {
       >
         Pular para o conteúdo
       </a>
-      <div className="container-site flex h-16 items-center justify-between gap-4">
+      <div className="container-site flex h-[72px] items-center justify-between gap-4 lg:h-20">
         <Link to="/" className="rounded">
-          <Logo claro />
+          <Logo tamanho={64} className="lg:!h-[72px] lg:!w-[72px]" />
         </Link>
 
         <nav aria-label="Menu principal" className="hidden lg:block">

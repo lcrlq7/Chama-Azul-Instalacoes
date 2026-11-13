@@ -31,74 +31,165 @@
       %JSONLD%
     </script>
 
-    <!-- Abertura: a chama nasce laranja e vira azul (queima correta). Só CSS: aparece antes do
-         JavaScript, some sozinha em ~1,6 s, uma vez por sessão, e é desligada em "reduzir movimento". -->
+    <!-- Abertura: a chama nasce laranja no centro da tela, tremula, fica azul (queima correta),
+         sobe para o lugar dela no logo, o arco se desenha e o nome aparece. Só CSS e SVG: aparece
+         antes do JavaScript, dura ~5,6 s, uma vez por sessão, some com um toque e é desligada
+         para quem pede "reduzir movimento". As formas vêm do logo oficial (src/data/logo-vetor.json). -->
     <style>
       #intro {
         position: fixed;
         inset: 0;
         z-index: 100;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 18px;
         background: #0b1b34;
-        animation: intro-sai 0.45s ease 1.25s forwards;
         cursor: pointer;
+        animation: intro-sai 0.6s cubic-bezier(0.4, 0, 0.2, 1) 5s forwards;
       }
-      #intro svg {
-        width: min(60vw, 240px);
+      #intro .palco {
+        width: min(82vw, 62vh, 420px);
         height: auto;
         overflow: visible;
+        animation: intro-afasta 0.6s cubic-bezier(0.4, 0, 0.2, 1) 5s forwards;
+      }
+      #intro .palco * {
+        transform-box: view-box;
+      }
+      #intro .pular {
+        position: absolute;
+        bottom: max(24px, env(safe-area-inset-bottom));
+        left: 0;
+        right: 0;
+        text-align: center;
+        font:
+          500 12px/1 system-ui,
+          sans-serif;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8fa6bf;
+        opacity: 0;
+        animation: intro-aparece 0.8s ease 1.4s forwards;
+      }
+      /* Grupo da chama: começa grande no centro da tela e sobe para a posição do logo. */
+      #intro .mover {
+        transform-origin: 540px 440px;
+        transform: translate(0px, 100px) scale(1.5);
+        animation: intro-mover 0.95s cubic-bezier(0.65, 0, 0.35, 1) 2.95s forwards;
+      }
+      #intro .nasce {
+        transform-origin: 540px 577px;
+        transform: scale(0.05, 0);
+        animation: intro-nasce 0.95s cubic-bezier(0.2, 0.8, 0.25, 1.1) 0.4s forwards;
+      }
+      #intro .tremor {
+        transform-origin: 540px 577px;
+        animation: intro-tremor 0.9s ease-in-out 1s 3;
+      }
+      #intro .brasa {
+        transform-origin: 540px 570px;
+        opacity: 0;
+        animation: intro-brasa 1.1s ease-out 0.15s forwards;
+      }
+      #intro .brilho {
+        transform-origin: 540px 460px;
+        opacity: 0;
+      }
+      #intro .brilho-laranja {
+        animation:
+          intro-brilho-acende 0.9s ease-out 0.5s forwards,
+          intro-some 1s ease-in-out 2s forwards;
+      }
+      #intro .brilho-azul {
+        animation:
+          intro-brilho-acende 1s ease-out 2s forwards,
+          intro-some 0.8s ease-in-out 3.2s forwards;
+      }
+      #intro .fogo-laranja {
+        animation: intro-some 1s ease-in-out 2s forwards;
+      }
+      #intro .fogo-azul {
+        opacity: 0;
+        animation:
+          intro-aparece 1s ease-in-out 2s forwards,
+          intro-some 0.7s ease-in-out 3.25s forwards;
+      }
+      #intro .contorno {
+        opacity: 0;
+        animation: intro-aparece 0.7s ease-in-out 3.1s forwards;
       }
       #intro .arco {
-        stroke-dasharray: 2200;
-        stroke-dashoffset: 2200;
-        animation: intro-arco 0.9s cubic-bezier(0.6, 0, 0.3, 1) 0.2s forwards;
+        stroke-dasharray: %LOGOARCOTRACO% %LOGOARCOTRACO%;
+        stroke-dashoffset: %LOGOARCOTRACO%;
+        animation: intro-arco 1.1s cubic-bezier(0.45, 0, 0.2, 1) 3.1s forwards;
       }
-      #intro .chama {
-        transform-origin: 540px 575px;
-        transform-box: view-box;
-        animation:
-          intro-acende 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.3) both,
-          intro-tremula 0.5s ease-in-out 0.35s 2 alternate;
-      }
-      #intro .laranja {
-        animation: intro-some 0.55s ease 0.45s forwards;
-      }
-      #intro .azul {
+      #intro .texto-branco,
+      #intro .texto-azul {
         opacity: 0;
-        animation: intro-aparece 0.55s ease 0.45s forwards;
+        transform: translate(0px, 22px);
       }
-      #intro .nome {
-        font:
-          600 15px/1 Georgia,
-          'Times New Roman',
-          serif;
-        letter-spacing: 0.32em;
-        color: #fff;
-        opacity: 0;
-        animation: intro-aparece 0.5s ease 0.55s forwards;
+      #intro .texto-branco {
+        animation: intro-texto 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 3.7s forwards;
       }
-      @keyframes intro-arco {
-        to {
-          stroke-dashoffset: 0;
-        }
+      #intro .texto-azul {
+        animation: intro-texto 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 3.95s forwards;
       }
-      @keyframes intro-acende {
-        from {
-          transform: scale(0.3);
+      @keyframes intro-brasa {
+        0% {
           opacity: 0;
+          transform: scale(0.3);
         }
-        to {
-          transform: scale(1);
+        35% {
           opacity: 1;
+          transform: scale(1.4);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(2.2);
         }
       }
-      @keyframes intro-tremula {
+      @keyframes intro-nasce {
+        0% {
+          transform: scale(0.05, 0);
+        }
+        70% {
+          transform: scale(1.04, 1.1);
+        }
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+      @keyframes intro-tremor {
+        0%,
+        100% {
+          transform: scale(1, 1) skewX(0deg);
+        }
+        20% {
+          transform: scale(0.965, 1.055) skewX(-2.2deg);
+        }
+        40% {
+          transform: scale(1.025, 0.975) skewX(1.8deg);
+        }
+        60% {
+          transform: scale(0.975, 1.045) skewX(-1.4deg);
+        }
+        80% {
+          transform: scale(1.015, 0.985) skewX(1.2deg);
+        }
+      }
+      @keyframes intro-mover {
         to {
-          transform: scale(0.97, 1.04);
+          transform: translate(0px, 0px) scale(1);
+        }
+      }
+      @keyframes intro-brilho-acende {
+        from {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
         }
       }
       @keyframes intro-some {
@@ -109,6 +200,22 @@
       @keyframes intro-aparece {
         to {
           opacity: 1;
+        }
+      }
+      @keyframes intro-arco {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes intro-texto {
+        to {
+          opacity: 1;
+          transform: translate(0px, 0px);
+        }
+      }
+      @keyframes intro-afasta {
+        to {
+          transform: scale(1.04);
         }
       }
       @keyframes intro-sai {
@@ -138,48 +245,67 @@
   </head>
   <body>
     <div id="intro" aria-hidden="true" onclick="this.remove()">
-      <svg viewBox="100 100 880 880">
+      <svg class="palco" viewBox="100 100 880 880">
         <defs>
-          <linearGradient id="intro-g-laranja" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#FFD27A" />
-            <stop offset="0.5" stop-color="#F4780B" />
-            <stop offset="1" stop-color="#C2410C" />
+          <linearGradient id="intro-fogo-laranja" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFE7A3" />
+            <stop offset="0.35" stop-color="#FFB547" />
+            <stop offset="0.72" stop-color="#F4780B" />
+            <stop offset="1" stop-color="#D2440E" />
           </linearGradient>
-          <linearGradient id="intro-g-azul" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#BFF1FF" />
-            <stop offset="0.45" stop-color="#6CCCFF" />
+          <linearGradient id="intro-fogo-azul" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F2FCFF" />
+            <stop offset="0.35" stop-color="#A8E3FF" />
+            <stop offset="0.72" stop-color="#6CCCFF" />
             <stop offset="1" stop-color="#1A85D6" />
           </linearGradient>
+          <radialGradient id="intro-brilho-laranja">
+            <stop offset="0" stop-color="#FF9A3C" stop-opacity="0.55" />
+            <stop offset="0.5" stop-color="#F4780B" stop-opacity="0.18" />
+            <stop offset="1" stop-color="#F4780B" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="intro-brilho-azul">
+            <stop offset="0" stop-color="#6CCCFF" stop-opacity="0.5" />
+            <stop offset="0.5" stop-color="#1A85D6" stop-opacity="0.16" />
+            <stop offset="1" stop-color="#1A85D6" stop-opacity="0" />
+          </radialGradient>
         </defs>
         <path
           class="arco"
-          d="M858 292A405 405 0 1 0 858 788"
+          d="%LOGOARCO%"
           fill="none"
           stroke="#6CCCFF"
-          stroke-width="30"
+          stroke-width="%LOGOARCOLARGURA%"
           stroke-linecap="round"
         />
-        <g class="chama">
-          <path
-            class="laranja"
-            d="M540 310C580 370 628 420 628 475C628 535 588 575 540 575C492 575 452 535 452 475C452 435 475 405 498 388C500 410 515 432 538 440C522 400 525 350 540 310Z"
-            fill="url(#intro-g-laranja)"
+        <g class="mover">
+          <circle
+            class="brilho brilho-laranja"
+            cx="540"
+            cy="460"
+            r="250"
+            fill="url(#intro-brilho-laranja)"
           />
-          <path
-            class="azul"
-            d="M540 310C580 370 628 420 628 475C628 535 588 575 540 575C492 575 452 535 452 475C452 435 475 405 498 388C500 410 515 432 538 440C522 400 525 350 540 310Z"
-            fill="url(#intro-g-azul)"
+          <circle
+            class="brilho brilho-azul"
+            cx="540"
+            cy="460"
+            r="250"
+            fill="url(#intro-brilho-azul)"
           />
-          <path
-            d="M540 310C580 370 628 420 628 475C628 535 588 575 540 575C492 575 452 535 452 475C452 435 475 405 498 388C500 410 515 432 538 440C522 400 525 350 540 310Z"
-            fill="none"
-            stroke="#fff"
-            stroke-width="22"
-            stroke-linejoin="round"
-          />
+          <circle class="brasa" cx="540" cy="568" r="14" fill="#FFB547" />
+          <g class="nasce">
+            <g class="tremor">
+              <path class="fogo-laranja" d="%LOGOSILHUETA%" fill="url(#intro-fogo-laranja)" />
+              <path class="fogo-azul" d="%LOGOSILHUETA%" fill="url(#intro-fogo-azul)" />
+              <path class="contorno" d="%LOGOCONTORNO%" fill="#fff" fill-rule="evenodd" />
+            </g>
+          </g>
         </g>
+        <path class="texto-branco" d="%LOGOTEXTOBRANCO%" fill="#fff" fill-rule="evenodd" />
+        <path class="texto-azul" d="%LOGOTEXTOAZUL%" fill="#6FCBFA" fill-rule="evenodd" />
       </svg>
-      <span class="nome">CHAMA AZUL</span>
+      <p class="pular">Toque para pular</p>
     </div>
     <div id="root"></div>
     <noscript>

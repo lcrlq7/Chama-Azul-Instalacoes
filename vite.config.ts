@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { site } from './src/site.config';
+import logoVetor from './src/data/logo-vetor.json';
 
 const titulo = `${site.nome} | Gás e hidráulica em ${site.cidadeBase} e região`;
 const descricao = `Instalação e manutenção de redes de gás, hidráulica em multicamadas, boiler, aquecimento e fogões em ${site.cidadeBase} e região. Orçamento detalhado por escrito e garantia no serviço.`;
@@ -41,6 +42,14 @@ function seoDoConfig(): Plugin {
           NOME: site.nome,
           TELEFONE: site.contato.telefoneExibicao,
           EMAIL: site.contato.email,
+          // Formas do logo oficial usadas na abertura animada.
+          LOGOARCO: logoVetor.arco,
+          LOGOARCOLARGURA: String(logoVetor.arcoLargura),
+          LOGOARCOTRACO: String(Math.ceil(logoVetor.arcoComprimento) + 4),
+          LOGOSILHUETA: logoVetor.chamaSilhueta,
+          LOGOCONTORNO: logoVetor.chamaContorno,
+          LOGOTEXTOBRANCO: logoVetor.textoBranco,
+          LOGOTEXTOAZUL: logoVetor.textoAzul,
           JSONLD: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
         };
         return html.replace(/%([A-Z]+)%/g, (m, k: string) => troca[k] ?? m);
